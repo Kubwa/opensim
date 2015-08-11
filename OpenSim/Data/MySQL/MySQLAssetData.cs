@@ -135,6 +135,9 @@ namespace OpenSim.Data.MySQL
 
                                 asset.Temporary = Convert.ToBoolean(dbReader["temporary"]);
                                 asset.Flags = (AssetFlags)Convert.ToInt32(dbReader["asset_flags"]);
+
+                                //We want to update the last access time for our asset
+                                UpdateAccessTime(asset);
                             }
                         }
                     }
